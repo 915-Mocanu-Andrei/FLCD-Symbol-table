@@ -1,0 +1,27 @@
+https://github.com/915-Mocanu-Andrei/FLCD-Symbol-table
+
+The SymbolTable is implemented using a simple hashtable.
+
+int hash(String token)
+    Computes the hashcode of the given String via the formula: s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+and then the modulo 100 of the given number.
+    Arguments:
+        token: a string
+    Returns: 
+        hash: an integer
+
+Integer add(String token)
+    Takes a token and searches for it in the hashtable, if there already is one it returns its address.
+	If there is'nt it creates a new entry in the hashtablefor the given token and returns its address.
+    Arguments:
+        token: a string
+    Returns: 
+        address:an integer
+
+Integer lookup(String token)
+    Takes a token and searches for it in the hashtable, if there already is one it returns its address.
+	If there is'nt it returns -1.
+    Arguments:
+        token: a string
+    Returns:
+        address:an integer
