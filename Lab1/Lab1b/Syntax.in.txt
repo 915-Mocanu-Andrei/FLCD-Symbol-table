@@ -1,0 +1,25 @@
+<program> ::= <decllist> "|" <cmpdstmt> "|"
+<decllist> ::= <declaration | <declaration> "|" <decllist>
+<declaration> ::= IDENTIFIER "space" <type> 
+<type1> ::= "nr" | "NR" |"BOOLEAN"| "string" 
+<arraydecl> ::= <type1> "{" nr "}" //numai recursiv
+<type> ::= <type1> | <arraydecl> 
+<cmpdstmt> ::= <stmtlist> 
+
+<stmtlist> ::= <stmt> | <stmt> "|" stmtlist 
+<stmt> ::= <simplstmt> | <structstmt> 
+<simplstmt> ::= <assignstmt> | <iostmt> | <retstmt>
+<assignstmt> ::= <expression> "=" IDENTIFIER
+<expression> ::= <expression> "+" <term> | <expression> "-" <term> | <expression> "*" <term> | <expression> "/" <term> | <term>
+<term> ::= <term> "*" <factor> | <term> "/" <factor> | <term> "-" <factor> | <term> "*+" <factor> | <factor>
+<factor> ::= "(" <expression> ")" | IDENTIFIER 
+
+<retstmt>:: "ret" <expression>
+<iostmt> ::= "in"| "out" "=" IDENTIFIER
+<structstmt> ::= <cmpdstmt> | <ifstmt> | <whilestmt> | <forstmt> | <retstmt>
+<ifstmt> ::= "daca" <condition> "[" <stmt> "]" [ {"altfel" "["<stmt>"]" ]
+<whilestmt> ::= "wloop"<condition> "[" <stmt> "]"
+<forstmt>::= "floop" "("<fcondition>")" "[" <stmt> "]" 
+<condition> ::= <expression> <RELATION> <expression>
+<fcondition> ::= <declaration> "|" <assignstmt> "|" <condition> "|" <assignstmt>
+<RELATION> ::= "<" | "=<" | "==" | "=>" | ">"

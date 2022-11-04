@@ -1,0 +1,15 @@
+~int x;
+~for (int i=2;i<=x/2;i++){
+~	if (x%i==0){
+~		return false;}
+~}
+~return true;
+
+
+nr x|
+2 = x|
+
+floop (nr i | 2 = i| i=< x/2|i + 1 = i)[
+	daca (x  % i ==0)[
+		ret fals|]]
+ret true|
