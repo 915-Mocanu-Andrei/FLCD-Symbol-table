@@ -1,0 +1,10 @@
+nr{} x|
+{1,2,3,6,7b} = x| ~ eroare lexicala 1 
+
+nr suma|
+0 = suma|
+floop(nr i| 0 = i | 4 == i | i + 1 = i)[
+	ret $|~eroare lexicala 2
+	x{i} + suma = suma| 
+]
+ret suma|
