@@ -1,0 +1,12 @@
+nr t |
+nr a |
+nr c |
+"asasasasa" = a |
+3 = b |       
+4 = c |
+daca ( a => b ) [
+	daca ( a > c ) [
+		ret a | ] ]
+	daca ( b > c ) [
+		ret b | ]
+ret c |
