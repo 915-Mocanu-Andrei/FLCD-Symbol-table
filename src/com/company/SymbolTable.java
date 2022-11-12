@@ -15,8 +15,7 @@ public class SymbolTable {
             this.table[i] = new ArrayList<Tuple<String,Integer>>();
         }
     }
-
-    ArrayList<Tuple<String,Integer>>[] table;// the string is the token, the Integer is the Code
+    ArrayList<Tuple<String,Integer>>[] table;// the string is the token, the Integer is the Address
     int last_code = 0;
     //explicat structura + hash function + diagrama de ceva chestie
     public int hash(String token){
