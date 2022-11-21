@@ -1,0 +1,44 @@
+class FinalAutomata
+	FinalAutomata(file_name):
+			Initializes the Finite Automata.
+	read(String file):
+		Reads and stores the elemets of the FA from a given file.
+	
+	getStates():
+		Returns the list of states.
+	getAlphabet():
+		Returns the Alphabet
+	getTransitions():
+		Returns the list of possible transitions.
+	getInitial_state()	:
+		Returns the initial state.
+	getFinal_states()
+		Returns the list of final states.
+	checkDFA():
+		Returns true if the read Final Automata si DFA.
+	checkSequence(String sequence):
+		Returns true if the sequence is accepted by the DFA.
+Menu from MainAutomata:
+	Based on the user's input:
+		0.Exits
+		1.Print the states
+		2.Print the alphabet
+		3.Print the transition
+		4.Print the initial state.
+		5.Print the final states.
+		6.Check a sequence	
+
+fa.in:
+<file> ::= <list> \n <line> \n <list> \n <line> \n <list> \n <line> \n <list> \n <line> \n <transitions> \n
+
+<list> ::= <alphanumeric> \n <list> | <alphanumeric>
+
+<transitions> ::= <transition> \n <transitions> | <transition>
+
+<transition> ::= <alphanumeric><alphanumeric><alphanumeric> 
+
+<alphanumeric> ::= <letter> | <digit>
+
+<letter> ::=  A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
+
+<digit>  ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
