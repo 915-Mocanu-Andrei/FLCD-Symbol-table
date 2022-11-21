@@ -11,7 +11,7 @@ public class FinalAutomata {
     private int read = 1;
     ArrayList<String> states; //1
     ArrayList<String> alphabet;// 2
-    ArrayList<String> transitions; // 3
+    ArrayList<Transition> transitions; // 3
     String initial_state;// 4
     ArrayList<String> final_states;// 5
 
@@ -23,7 +23,7 @@ public class FinalAutomata {
         return alphabet;
     }
 
-    public ArrayList<String> getTransitions() {
+    public ArrayList<Transition> getTransitions() {
         return transitions;
     }
 
@@ -83,7 +83,7 @@ public class FinalAutomata {
                     this.final_states.add(i);}
                 if(read ==5) {
                     System.out.println("Adding the Transition: "+i);
-                    this.transitions.add(i);
+                    this.transitions.add(new Transition(i.charAt(0),i.charAt(1),i.charAt(2)));
                 }
         }
     }
@@ -91,12 +91,12 @@ public class FinalAutomata {
     public boolean checkDFA(){
         boolean OK = true;
         // IF DFA Can't transition from one state to two different states through the same l
-        for (String transition: transitions
+        for (Transition transition: transitions
              ) {
-            for (String transition2: transitions
+            for (Transition transition2: transitions
                  ) {
-                if (transition.charAt(0) == transition2.charAt(0) && transition.charAt(1) == transition2.charAt(1)
-                && transition.charAt(2) != transition2.charAt(2)){
+                if (transition.getSource() == transition2.getSource() && transition.getSymbol() == transition2.getSymbol()
+                && transition.getDestination() != transition2.getDestination()){
                     OK = false;
                 }
             }
@@ -109,18 +109,18 @@ public class FinalAutomata {
         for(int i=0;i<sequence.length();i++){
             boolean advance = false;
             System.out.println("Making advance false" + i);
-            for (String transition:
+            for (Transition transition:
                  transitions) {
-                if(transition.charAt(0) == state.charAt(0) && transition.charAt(1) == sequence.charAt(i)){
-                    System.out.println("Moving from "+ transition.charAt(0) + "to "+ transition.charAt(2) + "through" +
-                            transition.charAt(1));
-                    state ="" + transition.charAt(2) ;
+                if(transition.getSource() == state.charAt(0) && transition.getSymbol() == sequence.charAt(i)){
+                    System.out.println("Moving from "+ transition.getSource() + "to "+ transition.getDestination() + "through" +
+                            transition.getSymbol());
+                    state ="" + transition.getDestination() ;
                     advance = true;
                     break;
                 }
             }
             System.out.println("Checking advance");
-            if (!advance){
+            if (!advance || !final_states.contains(state)){
                 return false;
             }
         }

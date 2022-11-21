@@ -38,7 +38,7 @@ public class MainAutomata {
                 }
             }
             if (x == 3) {
-                for (String transition : automata.getTransitions()) {
+                for (Transition transition : automata.getTransitions()) {
                     System.out.println(transition);
                 }
             }
